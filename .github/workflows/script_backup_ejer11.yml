@@ -17,7 +17,7 @@ jobs:
  # 3. Realizar otra acción: comprimir la copia
    - name: Comprimir carpeta de backup
    run: | 
-    -czf backup.tar.gz backup
+    tar -czf backup.tar.gz backup
    
   # 4. Subir el archivo como artefacto  
   - name: Subir artefacto

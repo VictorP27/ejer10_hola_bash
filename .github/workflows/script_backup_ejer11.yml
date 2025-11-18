@@ -6,20 +6,20 @@ jobs:
  runs-on: ubuntu-latest
  
  steps:
- #Descargar el código del repositorio
+ # 1. Descargar el código del repositorio
  - name: Checkout del repositorio
  uses: actions/checkout@v5
- #Crear carpeta backup
+ # 2. Crear carpeta backup
  - name: Crear copia de seguridad
  run: |
    mkdir -p backup
    cp -r datos backup/
- #Realizar otra acción: comprimir la copia
+ # 3. Realizar otra acción: comprimir la copia
    - name: Comprimir carpeta de backup
-   run: |
-   tar -czf backup.tar.gz backup
+   run: | 
+    -czf backup.tar.gz backup
    
-  #Subir el archivo como artefacto  
+  # 4. Subir el archivo como artefacto  
   - name: Subir artefacto
    uses: actions/upload-artifact@v5
    with:

@@ -1,8 +1,7 @@
-name: Ejecutar script backup
+name: Copia de seguridad y ejecución
 on:
   push:
-  branch: [ main ]
- jobs:
+jobs:
  backup_y_accion:
  runs-on: ubuntu-latest
  
@@ -17,12 +16,12 @@ on:
    cp -r datos backup/
  #Realizar otra acción: comprimir la copia
    - name: Comprimir carpeta de backup
-   run : |
+   run: |
    tar -czf backup.tar.gz backup
    
   #Subir el archivo como artefacto  
   - name: Subir artefacto
    uses: actions/upload-artifact@v5
    with:
-   name: copia-seguridad
-   path: backup.tar.gz
+    name: copia-seguridad
+    path: backup.tar.gz

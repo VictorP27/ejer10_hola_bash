@@ -2,6 +2,7 @@ name: Ejecutar script backup
 on:
   push:
   branch: [ main ]
+ jobs:
  backup_y_accion:
  runs-on: ubuntu-latest
  

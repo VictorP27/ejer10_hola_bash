@@ -1,0 +1,17 @@
+name: Ejecutar script Hola
+on:
+  push:
+  branch: [ main ]
+jobs:
+ ejecutar-hola:
+ runs-on: ubuntu-latest
+ # 1. Descargar el código del repositorio
+ steps:
+ - name: Checkout del repositorio
+ uses: actions/checkout@v5
+ # 2. Dar permisos de ejecución al script
+ -name: Dar permisos de ejecucion
+ run: chmod +x src/hola.sh
+ # 3. Ejecutar el script
+ -name: Ejecutar script
+ run: ./src/hola.sh

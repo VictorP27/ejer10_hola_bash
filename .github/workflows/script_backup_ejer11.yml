@@ -1,0 +1,21 @@
+name:
+on:
+ push:
+ branch: [ main ]
+ steps:
+ - name: Checkout del repositorio
+ uses: actions/checkout@v5
+ 
+ - name: Crear copia de seguridad
+ run: |
+   mkdir -p backup
+   cp -r datos backup/
+ 
+   - name: Comprimir carpeta de backup
+   run : |
+   tar -czf backup.tar.gz backup
+   - name: Subir artefacto
+   uses: actions/upload-artifact@v5
+   with:
+   name: copia-seguridad
+   path: backup.tar.gz

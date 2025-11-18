@@ -1,7 +1,7 @@
-name:
+name: Ejecutar script backup
 on:
- push:
- branch: [ main ]
+  push:
+  branch: [ main ]
  backup_y_accion:
  runs-on: ubuntu-latest
  

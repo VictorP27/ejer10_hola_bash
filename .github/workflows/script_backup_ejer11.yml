@@ -2,19 +2,25 @@ name:
 on:
  push:
  branch: [ main ]
+ backup_y_accion:
+ runs-on: ubuntu-latest
+ 
  steps:
+ #Descargar el código del repositorio
  - name: Checkout del repositorio
  uses: actions/checkout@v5
- 
+ #Crear carpeta backup
  - name: Crear copia de seguridad
  run: |
    mkdir -p backup
    cp -r datos backup/
- 
+ #Realizar otra acción: comprimir la copia
    - name: Comprimir carpeta de backup
    run : |
    tar -czf backup.tar.gz backup
-   - name: Subir artefacto
+   
+  #Subir el archivo como artefacto  
+  - name: Subir artefacto
    uses: actions/upload-artifact@v5
    with:
    name: copia-seguridad
